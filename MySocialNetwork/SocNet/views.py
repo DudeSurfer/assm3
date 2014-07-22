@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.template import Context, loader 
 from django.http import HttpResponse
-from django.contrib.auth.models import User
 from models import UserLink
 
 # Create your views here.
 def ListUsers(request): 
-  user_list = User.objects.all()
+  user_list = UserLink.objects.all()
   t = loader.get_template('SocNet/allUsers.html') 
   c = Context({ 'user_list': user_list, }) 
   return HttpResponse(t.render(c))
