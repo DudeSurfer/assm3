@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% block content %} 
+<h1> List of people being FOLLOWED! :D </h1>
+
+{% if follow_list %} 
+    <ul>
+       {% for followLink in follow_list %} 
+       <li>
+         {{ followLink.to_user.username }}
+       </li> 
+       {% endfor %} 
+    </ul> 
+  {% else %} 
+  	You're not following anyone! Follow people and join in on the FUN! :D
+  {% endif %} 
+
+{% endblock %}
