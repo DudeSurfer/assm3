@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bookmark</title>
+    </head>
+
+    <body background="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQB46GuUoNdAuNbGHUTaer9a_bx7YWIoeqJZoeAgHHQ1Y9vWi3B3A">
+        <h1>{{ category_name }}</h1>
+        {% if category %}
+            {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No pages currently in category.</strong>
+            {% endif %}
+        {% else %}
+            The specified category {{ category_name }} does not exist!
+        {% endif %}
+      <p><a href="/bookmark/{{ category_name_url }}/add_page/">Add a New Page</a></p>
+      <p><a href="/bookmark/">Back to the Categories Index</a></p>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bookmark</title>
+    </head>
+
+    <body background="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQB46GuUoNdAuNbGHUTaer9a_bx7YWIoeqJZoeAgHHQ1Y9vWi3B3A">
+        <h1>Add a Page</h1>
+
+        <form id="page_form" method="post" action="/bookmark/{{  category_name_url  }}/add_page/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Create Page" />
+        </form>
+    </body>
+
+</html>
